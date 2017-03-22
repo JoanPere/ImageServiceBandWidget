@@ -25,24 +25,47 @@ function(declare,
 
     baseClass: 'jimu-widget-imageServiceBands',
     layer: null,
+    first: true,
 
     postCreate: function() {
       
     },
 
     startup: function() {
-      layer = new ArcGISImageServiceLayer(this.config.urlService);
+      if(!this.config.userAddUrl){
+        dom.byId("url_div").style.visibility = "hidden";
+        dom.byId("bands_div").style.visibility = "visible";
+        this.addLayer(this.config.urlService);
+      }else{
+        dom.byId("url_div").style.visibility = "visible";
+        dom.byId("bands_div").style.visibility = "hidden";
+        var btnAddlayer = dom.byId("addLayer");
+        var widget = this;
+        btnAddlayer.onclick = function(){
+          widget.addLayer(dom.byId("urlText").value);
+        };
+      };  
+    },
+
+    addLayer:function(urlService){
+      dom.byId("url_div").style.visibility = "hidden";
+      dom.byId("bands_div").style.visibility = "visible";
+      this.setUpLayer(urlService);
+    },
+
+    setUpLayer: function(urlService){
+      this.layer = new ArcGISImageServiceLayer(urlService);
 
       var r = dom.byId("red");
       var g = dom.byId("green");
       var b = dom.byId("blue");
-      this.map.addLayer(layer);
+      this.map.addLayer(this.layer);
 
       var widget = this;
       var map = this.map;
 
       this.map.on("layer-add", function(){
-        var center = layer.fullExtent.getCenter();
+        var center = widget.layer.fullExtent.getCenter();
         if (webMercatorUtils.canProject(center, map)) {
           result = webMercatorUtils.project(center, map);
           map.centerAndZoom(result, 7);
@@ -59,7 +82,7 @@ function(declare,
         }
 
         
-        layer.getKeyProperties().then(function(response){
+        widget.layer.getKeyProperties().then(function(response){
         var bndProperties =   response.BandProperties;
         var id;
         for (var i = 0; i<bndProperties.length; i++) {
@@ -71,6 +94,9 @@ function(declare,
             optb.value = i;
 
             var name = bndProperties[i].BandName;
+            if(name == "undefined"){
+              name = i;
+            }
             optr.text = name;
             optg.text = name;
             optb.text = name;
@@ -89,10 +115,6 @@ function(declare,
           alert(msg);
         });
       });
-      
-      
-
-      
     },
 
     apply: function(){
@@ -103,18 +125,21 @@ function(declare,
         //obtenemos el nivel de zoom del input del html
         var b = dom.byId("blue").value;
 
-        layer.setBandIds([r,g,b]);
+        this.layer.setBandIds([r,g,b]);
         
     },
 
     onOpen: function(){
-      layer.setVisibility(true);
-      this.apply();
+      if(!this.first){
+        this.layer.setVisibility(true);
+        this.first = false;
+      }
+      //this.apply();
     },
 
     onClose: function(){
       if(this.config.hideLayer){
-        layer.setVisibility(false);
+        this.layer.setVisibility(false);
       }
     }
 

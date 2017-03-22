@@ -1,5 +1,9 @@
 <div>
-	<div>
+	<div class="form-group" id="url_div" style= "visibility:visible">
+		<label>${nls.urlLabel}<input class="form-control" id="urlText" name="" size="75"></label>
+		<input class="btn btn-success" type="button" id="addLayer" value="AddLayer">
+	</div>
+	<div style= "visibility:hidden" id="bands_div">
 		<h4><div>${nls.widgetDescription}</div></h4>
 		<h5><p>${nls.r} <select class="form-control" id="red" name=""></p></select></h5>
 
@@ -9,8 +13,9 @@
 
 		
 		<h5><p>${nls.b} <select class="form-control" id="blue" name=""></p></select></h5>
+		<div>
+			<input class="btn btn-success" type="button" id="apply" value="Apply">
+		</div>
 	</div>
-	<div>
-		<input class="btn btn-success" type="button" id="apply" value="Apply">
-	</div>
+	
 </div>

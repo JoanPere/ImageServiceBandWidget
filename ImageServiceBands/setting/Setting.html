@@ -1,8 +1,11 @@
 <div>
-	<div class="form-group">
-		<label>URL of the Image Service: <input class="form-control" id="urlText" name="" size="75"></label>
+	<div class="checkbox">
+  		<label><input type="checkbox" id="cb_urlUser" checked= true value="">${nls.urlUser}</label>
+	</div>
+	<div class="form-group" style="visibility: hidden">
+		<label>${nls.urlLabel}<input class="form-control" id="urlText" name="" size="75"></label>
 	</div>
 	<div class="checkbox">
-  		<label><input type="checkbox" id="cb_hidelayer" value="">Hide the layer when the widget is closed</label>
+  		<label><input type="checkbox" id="cb_hidelayer" value="">${nls.hideLayer}</label>
 	</div>
 </div>

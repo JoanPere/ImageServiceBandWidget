@@ -80,10 +80,10 @@
         },
         "placeholderIndex": 1,
         "id": "_5",
-        "name": "ImageServiceBands",
         "version": "2.3",
         "closeable": true,
         "uri": "widgets/ImageServiceBands/Widget",
+        "name": "ImageServiceBands",
         "config": "configs/ImageServiceBands/config_ImageServiceBands.json"
       },
       {

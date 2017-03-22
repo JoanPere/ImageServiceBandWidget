@@ -29,15 +29,28 @@ function(declare, BaseWidgetSetting) {
     },
 
     setConfig: function(config){
-      document.getElementById("urlText").value = config.urlService;
+      var cbUrl = document.getElementById("cb_urlUser");
+      cbUrl.checked = config.userAddUrl;
+      var urlTb = document.getElementById("urlText");
+      urlTb.style.visibility = "hidden";
+      urlTb.value = config.urlService;
+      cbUrl.onclick = function(){
+        if(this.checked){
+          urlTb.style.visibility = "hidden";
+        }else{
+          urlTb.style.visibility = "visible";
+        }
+      };
       document.getElementById("cb_hidelayer").checked = config.hideLayer;
     },
 
     getConfig: function(){
       //WAB will get config object through this method
+      var userUrl = document.getElementById("cb_urlUser").checked;
       var url = document.getElementById("urlText").value;
       var hide = document.getElementById("cb_hidelayer").checked;
       return {
+        userAddUrl:userUrl,
         urlService: url,
         hideLayer: hide
       }
