@@ -59,7 +59,9 @@
         },
         "version": "2.3",
         "id": "widgets_Search_Widget_3",
-        "name": "Search"
+        "name": "Search",
+        "config": "configs/Search/config_Search.json",
+        "visible": false
       },
       {
         "uri": "widgets/Coordinate/Widget",
@@ -70,7 +72,9 @@
         },
         "version": "2.3",
         "id": "widgets_Coordinate_Widget_4",
-        "name": "Coordinate"
+        "name": "Coordinate",
+        "config": "configs/Coordinate/config_Coordinate.json",
+        "visible": false
       },
       {
         "position": {
@@ -155,7 +159,9 @@
         },
         "version": "2.3",
         "id": "widgets_MyLocation_Widget_12",
-        "name": "MyLocation"
+        "name": "MyLocation",
+        "config": "configs/MyLocation/config_MyLocation.json",
+        "visible": false
       },
       {
         "uri": "widgets/AttributeTable/Widget",
@@ -174,7 +180,9 @@
             "name": "ViewInTable",
             "uri": "actions/ViewInAttributeTableFeatureAction"
           }
-        ]
+        ],
+        "config": "configs/AttributeTable/config_AttributeTable.json",
+        "visible": false
       },
       {
         "uri": "widgets/Splash/Widget",
@@ -254,20 +262,14 @@
     },
     "widgets": [
       {
-        "uri": "widgets/Legend/Widget",
-        "version": "2.3",
-        "id": "widgets_Legend_Widget_17",
-        "name": "Legend",
-        "index": 0
-      },
-      {
         "uri": "widgets/LayerList/Widget",
         "version": "2.3",
         "id": "widgets_LayerList_Widget_18",
         "name": "LayerList",
-        "index": 1
+        "index": 2
       }
-    ]
+    ],
+    "groups": []
   },
   "mobileLayout": {
     "widgetOnScreen": {
