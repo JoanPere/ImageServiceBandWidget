@@ -30,15 +30,21 @@ function(declare, BaseWidgetSetting) {
 
     setConfig: function(config){
       var cbUrl = document.getElementById("cb_urlUser");
+      var divUrl = document.getElementById("divUrl");
       cbUrl.checked = config.userAddUrl;
+      debugger;
       var urlTb = document.getElementById("urlText");
-      urlTb.style.visibility = "hidden";
+      if(cbUrl.checked){
+        divUrl.style.display = "none";
+      }else{
+        divUrl.style.display = "block";
+      }
       urlTb.value = config.urlService;
       cbUrl.onclick = function(){
         if(this.checked){
-          urlTb.style.visibility = "hidden";
+          divUrl.style.display = "none";
         }else{
-          urlTb.style.visibility = "visible";
+          divUrl.style.display = "block";
         }
       };
       document.getElementById("cb_hidelayer").checked = config.hideLayer;

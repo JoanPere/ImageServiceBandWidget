@@ -84,7 +84,8 @@
         "closeable": true,
         "uri": "widgets/ImageServiceBands/Widget",
         "name": "ImageServiceBands",
-        "config": "configs/ImageServiceBands/config_ImageServiceBands.json"
+        "config": "configs/ImageServiceBands/config_ImageServiceBands.json",
+        "openAtStart": true
       },
       {
         "position": {

@@ -33,12 +33,12 @@ function(declare,
 
     startup: function() {
       if(!this.config.userAddUrl){
-        dom.byId("url_div").style.visibility = "hidden";
-        dom.byId("bands_div").style.visibility = "visible";
+        dom.byId("url_div").style.display = "none";
+        dom.byId("bands_div").style.display = "block";
         this.addLayer(this.config.urlService);
       }else{
-        dom.byId("url_div").style.visibility = "visible";
-        dom.byId("bands_div").style.visibility = "hidden";
+        dom.byId("url_div").style.display = "block";
+        dom.byId("bands_div").style.display = "none";
         var btnAddlayer = dom.byId("addLayer");
         var widget = this;
         btnAddlayer.onclick = function(){
@@ -48,8 +48,8 @@ function(declare,
     },
 
     addLayer:function(urlService){
-      dom.byId("url_div").style.visibility = "hidden";
-      dom.byId("bands_div").style.visibility = "visible";
+      dom.byId("url_div").style.display = "none";
+      dom.byId("bands_div").style.display = "block";
       this.setUpLayer(urlService);
     },
 
