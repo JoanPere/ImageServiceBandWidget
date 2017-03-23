@@ -6,11 +6,14 @@ Developed for Web AppBuilder
 ## About
 ### Initial config
 * You can set to allow the user to load their own Image Services or specify an URL for the Image Service.
-  * ![initConfig](img/initConfig.png)
+  * ![initConfigA](img/initConfigA.png)
+   * ![initConfigB](img/initConfigB.png)
   
  ### Widget
 * Once we have our widget config ready and the Image Service Loaded we will see the selectors for the band combination.
-  * ![openWidget](img/openWidget.png)
+  * ![openWidgetB](img/openWidgetB.png)
+* If in the config is set that the user can add an Image Service Url, the initial window of the widget will be a text box to include the url of the service.
+  * ![openWidgetA](img/openWidgetA.png)
   
  ### Installation
  To see the widget once we open any of our App we need to follow the next steps:
