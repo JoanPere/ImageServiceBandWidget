@@ -35,7 +35,7 @@ function(declare,
       if(!this.config.userAddUrl){
         dom.byId("url_div").style.display = "none";
         dom.byId("bands_div").style.display = "block";
-        this.addLayer("http://sampleserver6.arcgisonline.com/arcgis/rest/services/Oblique/WU_Oblique/ImageServer");
+        this.addLayer(this.config.urlService);
       }else{
         dom.byId("url_div").style.display = "block";
         dom.byId("bands_div").style.display = "none";
